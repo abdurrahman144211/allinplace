@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container mt-lg-9">
+    <div class="container mt-md-9">
         <div class="row">
-            <div class="col col-login mx-auto">
+            <div class="col col-md-6 offset-md-3">
                 <form class="card" action="{{route('login')}}" method="post">
                     @csrf
                     <div class="card-body p-6">
@@ -44,7 +43,7 @@
                     </div>
                 </form>
                 <div class="text-center text-muted">
-                    Don't have account yet? <a href="./register.html">Sign up</a>
+                    Don't have account yet? <a href="{{route('register')}}">Sign up</a>
                 </div>
             </div>
         </div>
