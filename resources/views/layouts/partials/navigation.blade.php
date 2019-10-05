@@ -51,7 +51,7 @@
                         <a class="dropdown-item" href="#">
                             <i class="dropdown-icon fe fe-user"></i> Profile
                         </a>
-                        <a class="dropdown-item" href="{{route('channels.index')}}">
+                        <a class="dropdown-item" href="">
                             <i class="dropdown-icon fe fe-user"></i> My Channels
                         </a>
                         <a class="dropdown-item" href="#">
