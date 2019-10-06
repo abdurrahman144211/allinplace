@@ -48,9 +48,9 @@ class Listing extends Model
      * @param $category
      * @return mixed
      */
-    public function scopeFromCateory($query, $category)
+    public function scopeFromCategory($query, $category)
     {
-        return $this->where('category_id', $category->id);
+        return $query->where('category_id', $category->id);
     }
 
     /**
@@ -60,7 +60,7 @@ class Listing extends Model
      */
     public function scopeInArea($query, Area $area)
     {
-        return $this->whereIn('area_id', array_merge(
+        return $query->whereIn('area_id', array_merge(
             [$area->id],
             $area->descendants()->pluck('id')->toArray()
         ));

@@ -12,4 +12,31 @@ class Category extends Model
 
     protected $guarded = [];
 
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function listings()
+    {
+        return $this->hasMany(Listing::class);
+    }
+
+    /**
+     * @param $query
+     * @param $area
+     * @return mixed
+     */
+    public function scopeWithListingsInArea($query, $area)
+    {
+        return $query->with(['listings' => function ($q) use ($area) {
+            return $q->isLive()->inArea($area);
+        }]);
+    }
 }
