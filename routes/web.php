@@ -12,5 +12,5 @@
 */
 
 Route::get('/', 'LandingController');
-
+Route::get('/{area}', 'AreaController@show')->name('areas.show');
 Auth::routes();

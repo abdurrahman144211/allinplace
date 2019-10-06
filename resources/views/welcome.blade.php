@@ -8,36 +8,38 @@
     <div class="my-3 my-md-5">
         <div class="container">
             <div class="page-header">
-                <h1 class="page-title">
-                    {{__('site.welcomeTitle')}}
+                <h1>
+                   {{__('site.welcomeTitle')}}
                 </h1>
             </div>
-            <div class="card">
-                <table class="table card-table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>% 24h</th>
-                        <th>Market Cap</th>
-                        <th>Circulating Supply</th>
-                        <th>Volume 24H</th>
-                        <th>CMGR/Month</th>
-                        <th>Inflation</th>
-                    </tr>
-                    <tr>
-                        <td>100</td>
-                        <td></td>
-                        <td>Iconomi</td>
-                        <td>$2.26</td>
-                        <td class="text-red">-11%</td>
-                        <td class="text-right">$225,521,589</td>
-                        <td>99,788,312 ICN</td>
-                        <td class="text-right">$3,993,010</td>
-                        <td>-3.30% / 7</td>
-                        <td class="text-right">-0.19%</td>
-                    </tr>
-                </table>
-            </div>
+            @foreach($areas as $country)
+                <h1 class="page-title">{{$country->name}}</h1> <hr>
+                <div class="row">
+                @foreach($country->children as $index => $state)
+                    <div class="col-md-4">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{{$index}}-{{\Str::slug($state->name)}}" aria-expanded="true" aria-controls="collapse-{{$index}}-{{\Str::slug($state->name)}}">
+                                            {{$state->name}}
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="collapse-{{$index}}-{{\Str::slug($state->name)}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @foreach($state->children as $city)
+                                            <a href="" class='d-block'>{{$city->name}}</a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection
