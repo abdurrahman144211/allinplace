@@ -15,7 +15,16 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->text('body');
+            $table->unsignedBigInteger('area_id');
+            $table->unsignedBigInteger('category_id');
+            $table->boolean('live')->default(false);
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
