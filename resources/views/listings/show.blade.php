@@ -7,20 +7,22 @@
 @section('content')
 <div class="container mt-md-7">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item btn btn-outline-secondary">Email To Friend</li>
-                        <li class="list-group-item btn btn-outline-secondary">Add to Favourites</li>
-                    </ul>
+        @auth
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item btn btn-outline-secondary">Email To Friend</li>
+                            <li class="list-group-item btn btn-outline-secondary">Add to Favourites</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-8">
+        @endauth
+        <div class="col-md-{{auth()->check() ? '9' : '12'}}">
             <div class="card">
                 <div class="card-header">
-                    {{$listing->title}} in &nbsp; <a href="{{route('areas.store', $listing->area->slug)}}" class="text-muted">{{$listing->area->name}}</a>
+                    <h3 class="page-title">{{$listing->title}} in </h3>  &nbsp; <a href="{{route('areas.store', $listing->area->slug)}}" class="text-muted">{{$listing->area->name}}</a>
                 </div>
                 <div class="card-body">
                     {{nl2br(e($listing->body))}}
