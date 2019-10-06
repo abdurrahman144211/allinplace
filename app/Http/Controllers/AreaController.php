@@ -6,8 +6,10 @@ use App\Models\Area;
 
 class AreaController extends Controller
 {
-    public function show(Area $area)
+    public function store(Area $area)
     {
-        return view('areas.show', compact('area'));
+        session()->put('area', $area->slug);
+
+        return redirect()->back();
     }
 }

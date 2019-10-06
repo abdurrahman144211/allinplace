@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'LandingController');
-Route::get('/{area}', 'AreaController@show')->name('areas.show');
 Auth::routes();
+Route::get('/', 'LandingController')->name('welcome');
+Route::get('/{area}', 'AreaController@store')->name('areas.store');
