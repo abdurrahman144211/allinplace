@@ -138154,7 +138154,11 @@ class AreasTableSeeder extends Seeder
             ];
         })->toArray();
 
-        foreach($wanted as $area) {
+        $data = [
+          $wanted[5782], $wanted[2]
+        ];
+
+        foreach($data as $area) {
             \App\Area::create((array) $area);
         }
     }
