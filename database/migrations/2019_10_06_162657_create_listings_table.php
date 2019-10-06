@@ -17,6 +17,7 @@ class CreateListingsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('body');
             $table->unsignedBigInteger('area_id');
             $table->unsignedBigInteger('category_id');

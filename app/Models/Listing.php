@@ -11,6 +11,14 @@ class Listing extends Model
 
     protected $guarded = [];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($listing) {
+            $listing->slug = uniqid(true);
+        });
+    }
     /**
      * @param $query
      * @return mixed
