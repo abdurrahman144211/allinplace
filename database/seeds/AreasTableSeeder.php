@@ -35,7 +35,7 @@ class AreasTableSeeder extends Seeder
         })->toArray();
 
 
-        $wanted = [$areas[66], $areas[50], $areas[88]];
+        $wanted = [$areas[63], $areas[64], $areas[66], $areas[88]];
         foreach($wanted as $area) {
             \App\Models\Area::create($area);
         }
