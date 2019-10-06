@@ -138159,7 +138159,7 @@ class AreasTableSeeder extends Seeder
         ];
 
         foreach($data as $area) {
-            \App\Area::create((array) $area);
+            \App\Models\Area::create((array) $area);
         }
     }
 }
