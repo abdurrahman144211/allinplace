@@ -47,13 +47,15 @@ class ListingController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Area $area
+     * @param Listing $listing
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show(Area $area, Listing $listing)
     {
-        //
+        if(! $listing->live) abort(403);
+
+        return view('listings.show', compact('listing'));
     }
 
     /**

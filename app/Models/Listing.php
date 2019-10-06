@@ -38,7 +38,7 @@ class Listing extends Model
     /**
      * @return mixed
      */
-    public function isLive()
+    public function live()
     {
         return $this->live;
     }

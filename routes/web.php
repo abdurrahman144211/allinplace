@@ -17,5 +17,6 @@ Route::get('/{area}', 'AreaController@store')->name('areas.store');
 
 Route::group(['prefix' => '/{area}'], function () {
     Route::resource('/categories', 'CategoryController');
-    Route::resource('/categories/{category}/listings', 'ListingController');
+    Route::get('/categories/{category}/listings', 'ListingController@index')->name('listings.index');
+    Route::get('/{listing}', 'ListingController@show')->name('listings.show');
 });

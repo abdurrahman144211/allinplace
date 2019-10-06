@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-lg-4">
     <div class="card p-3">
         <div class="card-header">
-            <a href="javascript:void(0)" class="mb-3">
+            <a href="{{route('listings.show', [$area->slug, $listing->slug])}}" class="mb-3">
                 {{$listing->title}}
             </a>
         </div>
