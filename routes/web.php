@@ -14,3 +14,7 @@
 Auth::routes();
 Route::get('/', 'LandingController')->name('welcome');
 Route::get('/{area}', 'AreaController@store')->name('areas.store');
+
+Route::group(['prefix' => '/{area}'], function () {
+    Route::resource('/categories', 'CategoryController');
+});
