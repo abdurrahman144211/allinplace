@@ -1,8 +1,8 @@
 <div class="header py-4">
     <div class="container">
         <div class="d-flex">
-            <a class="header-brand" href="./index.html">
-                {{config('app.name')}}
+            <a class="header-brand" href="{{route('welcome')}}">
+                {{config('app.name')}} - {{$area->name}}
             </a>
             <div class="d-flex order-lg-2 ml-auto">
                 @guest
@@ -88,10 +88,10 @@
             <div class="col-lg order-lg-first">
                 <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                     <li class="nav-item">
-                        <a href="{{route('welcome')}}" class="nav-link active"><i class="fe fe-list"></i>{{__('site.all_areas')}}</a>
+                        <a href="{{route('welcome')}}" class="nav-link active"><i class="fe fe-database"></i>{{__('site.all_areas')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('user.area.store', $area->slug)}}" class="nav-link active"><i class="fe fe-home"></i> {{$area->name}}</a>
+                        <a href="{{route('categories.index', $area->slug)}}" class="nav-link active"><i class="fe fe-list"></i> {{$area->name . " " . __('site.categories')}}</a>
                     </li>
                     <li class="nav-item">
                         <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-box"></i> Interface</a>
