@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Area;
 
-class AreaController extends Controller
+class UserAreaController extends Controller
 {
     /**
      * @param Area $area

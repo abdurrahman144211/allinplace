@@ -15,6 +15,7 @@ class AreasTableSeeder extends Seeder
         ini_set('memory_limit', '-1');
 
         $data = file_get_contents(config_path('countries_states_cities.json'));
+
         $data = json_decode($data, true);
 
         $areas = collect($data)->map(function ($item) {

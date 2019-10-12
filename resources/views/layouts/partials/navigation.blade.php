@@ -91,7 +91,7 @@
                         <a href="{{route('welcome')}}" class="nav-link active"><i class="fe fe-list"></i>{{__('site.all_areas')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('areas.store', $area->slug)}}" class="nav-link active"><i class="fe fe-home"></i> {{$area->name}}</a>
+                        <a href="{{route('user.area.store', $area->slug)}}" class="nav-link active"><i class="fe fe-home"></i> {{$area->name}}</a>
                     </li>
                     <li class="nav-item">
                         <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-box"></i> Interface</a>

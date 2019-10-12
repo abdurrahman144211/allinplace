@@ -2,13 +2,24 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Models\Area;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use App\Repositories\Contracts\AreaRepositoryInterface;
+use App\Http\Services\Location\Contracts\LocationFinder;
 
 class AreaComposer
 {
-    protected $area;
+    protected $area, $areaRepository, $locationFinder;
+
+    /**
+     * AreaComposer constructor.
+     * @param AreaRepositoryInterface $areaRepository
+     */
+    public function __construct(AreaRepositoryInterface $areaRepository, LocationFinder $locationFinder)
+    {
+        $this->areaRepository = $areaRepository;
+        $this->locationFinder = $locationFinder;
+    }
 
     /**
      * @param View $view
@@ -26,9 +37,9 @@ class AreaComposer
      */
     protected function getArea()
     {
-        $area = Area::whereSlug($this->areaSlug())->first();
+        $area = $this->areaRepository->bySlug($this->areaSlug());
 
-        return $area ?: Area::first();
+        return $area ?: $this->areaRepository->first();
     }
 
     /**
@@ -46,10 +57,6 @@ class AreaComposer
      */
     protected function getAreaByLocation()
     {
-        $countryData = json_decode(file_get_contents('http://www.geoplugin.net/json.gp'));
-
-        if(! $countryData->geoplugin_countryName) return false;
-
-        return Str::slug($countryData->geoplugin_countryCode);
+        return Str::slug($this->locationFinder->locate(request()->ip()));
     }
 }
