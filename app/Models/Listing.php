@@ -97,4 +97,29 @@ class Listing extends Model
     {
         return $this->belongsTo(Area::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function favourites()
+    {
+        return $this->morphMany(Favourite::class, 'favouritable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function likers()
+    {
+        return $this->morphToMany(User::class, 'favouritable');
+    }
+
+    /**
+     * @param User $user
+     * @return mixed
+     */
+    public function hasFavouritedBy(User $user)
+    {
+        return $this->likers->contains($user);
+    }
 }
