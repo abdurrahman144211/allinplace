@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84e11df3-8620-4040-bdf2-6e68ecd4e534" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Favourite.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Favourite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Listing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/listings/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listings/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListingFavouritesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingFavouritesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ListingFavourites/ListingFavouritesStoreService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ListingFavourites/ListingFavouritesStoreService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingFavouritesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3234">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="264">
+              <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
               <folding>
                 <element signature="e#40#60#0#PHP" expanded="true" />
               </folding>
@@ -52,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/ListingFavourites/ListingFavouritesStoreService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+            <state relative-caret-position="165">
+              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -94,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Listing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="3696">
               <caret line="131" selection-start-line="131" selection-end-line="131" />
               <folding>
                 <element signature="e#30#69#0#PHP" expanded="true" />
@@ -192,12 +188,12 @@
         <option value="$PROJECT_DIR$/app/Models/Category.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_10_06_194144_create_favourites_table.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
-        <option value="$PROJECT_DIR$/app/Services/ListingFavourites/ListingFavouritesStoreService.php" />
         <option value="$PROJECT_DIR$/app/Models/Favourite.php" />
         <option value="$PROJECT_DIR$/resources/views/listings/show.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ListingFavouritesController.php" />
         <option value="$PROJECT_DIR$/app/Models/Listing.php" />
+        <option value="$PROJECT_DIR$/app/Services/ListingFavourites/ListingFavouritesStoreService.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ListingFavouritesController.php" />
       </list>
     </option>
   </component>
@@ -325,6 +321,19 @@
               <item name="allinplace" type="b2602c69:ProjectViewProjectNode" />
               <item name="allinplace" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="allinplace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="allinplace" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="allinplace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="allinplace" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -387,19 +396,19 @@
       <workItem from="1570354881839" duration="29773000" />
       <workItem from="1570449956646" duration="2376000" />
       <workItem from="1570878023443" duration="11439000" />
-      <workItem from="1570953728755" duration="6310000" />
+      <workItem from="1570953728755" duration="6412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65414000" />
+    <option name="totallyTimeSpent" value="65516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1280" height="1024" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" x="2689" y="25" width="381" height="999" id="Project" order="1" visible="true" weight="0.2046875" />
+      <window_info active="true" content_ui="combo" x="2689" y="25" width="381" height="999" id="Project" order="1" visible="true" weight="0.2046875" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="0" weight="0.32982087" />
@@ -769,13 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/ListingFavourites/ListingFavouritesStoreService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Favourite.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -787,16 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="17" column="125" selection-start-line="17" selection-start-column="125" selection-end-line="17" selection-end-column="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingFavouritesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3234">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -816,10 +808,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Listing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="3696">
           <caret line="131" selection-start-line="131" selection-end-line="131" />
           <folding>
             <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/ListingFavourites/ListingFavouritesStoreService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingFavouritesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+          <folding>
+            <element signature="e#40#60#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -48,7 +48,7 @@ class ListingFavouritesController extends Controller
      */
     public function store(Request $request, Area $area, Listing $listing)
     {
-        $this->service->handle($listing, auth()->user());
+        $this->service->handle($listing, $request->user());
 
         return back();
     }
