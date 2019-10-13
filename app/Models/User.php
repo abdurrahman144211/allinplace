@@ -37,17 +37,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return mixed
+     */
     public function favouriteListings()
     {
-        return $this
-            ->morphedByMany(
+        return $this->morphedByMany(
                 Listing::class,
                 'favouritable',
                 'favourites',
                 'user_id',
                 'favouritable_id'
-            )
-            ->withPivot(['created_at'])
-            ->orderByPivot('created_at', 'desc');
+            )->withPivot(['created_at']);
     }
 }

@@ -19,6 +19,15 @@ class Listing extends Model
             $listing->slug = uniqid(true);
         });
     }
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
     /**
      * @param $query
      * @return mixed
@@ -111,7 +120,7 @@ class Listing extends Model
      */
     public function likers()
     {
-        return $this->morphToMany(User::class, 'favouritable');
+        return $this->morphToMany(User::class, 'favouritable', 'favourites');
     }
 
     /**
@@ -120,6 +129,6 @@ class Listing extends Model
      */
     public function hasFavouritedBy(User $user)
     {
-        return $this->likers->contains($user);
+        return $this->favourites()->where('user_id', $user->id)->exists();
     }
 }

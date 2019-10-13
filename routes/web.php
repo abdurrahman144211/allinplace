@@ -13,4 +13,7 @@ Route::group(['prefix' => '/{area}'], function () {
     Route::get('/categories/{category}/listings', 'ListingController@index')->name('listings.index');
     // Show single listing
     Route::get('/{listing}', 'ListingController@show')->name('listings.show');
+    // Store a favourite for listing
+    Route::post('/listings/{listing}/favourites', 'ListingFavouritesController@store')->name('listings.favourites.store');
+    Route::delete('/listings/{listing}/favourites', 'ListingFavouritesController@destroy')->name('listings.favourites.destroy');
 });

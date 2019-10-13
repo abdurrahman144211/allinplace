@@ -13,14 +13,26 @@
             <hr>
             @auth
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item btn btn-outline-secondary">Email To Friend</li>
-                            <li class="list-group-item btn btn-outline-secondary">Add to Favourites</li>
-                        </ul>
-                    </div>
-                </div>
+                @if($listing->hasFavouritedBy(auth()->user()))
+                    <form method="POST" class="form-group" action="{{route('listings.favourites.destroy', [$area, $listing])}}">
+                        @csrf
+                        {{method_field('DELETE')}}
+                        <button type="submit" class="btn btn-outline-danger">
+                            <i class="fe fe-heart"></i> {{__('site.remove_from_favourites')}}
+                        </button>
+                    </form>
+                @else
+                    <form method="POST" class="form-group" action="{{route('listings.favourites.store', [$area, $listing])}}">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-primary">
+                            <i class="fe fe-heart"></i> {{__('site.add_to_favourites')}}
+                        </button>
+                    </form>
+                @endif
+                <form method="POST" class="form-group" action="{{route('listings.favourites.store', [$area, $listing])}}">
+                    @csrf
+                    <button type="submit" class="btn btn-default">{{__('site.add_to_favourites')}}</button>
+                </form>
             </div>
         @endauth
         <div class="col-md-{{auth()->check() ? '9' : '12'}}">
