@@ -52,4 +52,14 @@ class User extends Authenticatable
             ->withPivot(['created_at'])
             ->orderBy('pivot_created_at', 'desc');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function viewedListings()
+    {
+        return $this->belongsToMany(Listing::class, 'user_listing_views')
+            ->withTimestamps();
+    }
+
 }
