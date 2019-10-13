@@ -8,8 +8,8 @@
     <div class="my-3 my-md-5">
         <div class="container">
             <div class="page-header">
-                <h1 class="page-title">
-                    {{$category->name}} in {{$area->name}}
+                <h1 class="text-muted page-title">
+                    {{$category->parent->name}} > {{$category->name}}
                 </h1>
                 <div class="page-subtitle">{{__('site.found')}} {{count($listings)}} {{__('site.advertises')}}</div>
                 <div class="page-options d-flex">

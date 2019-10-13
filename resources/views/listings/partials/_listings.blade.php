@@ -13,7 +13,7 @@
                 <div>
                     @if($area->children->count())
                         <span class="text-muted-dark">
-                            <a href="{{route('areas.store', $listing->area->slug)}}">{{$listing->area->name}}</a>
+                            <a href="{{route('user.area.store', $listing->area->slug)}}">{{$listing->area->name}}</a>
                         </span>
                     @endif
                     <div>{{$listing->owner->name}}</div>

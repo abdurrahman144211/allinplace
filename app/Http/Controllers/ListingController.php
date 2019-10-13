@@ -3,12 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
-use App\Models\Category;
 use App\Models\Listing;
+use App\Models\Category;
+use App\Services\Listings\ListingIndexService;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
+    protected $service;
+
+    /**
+     * ListingController constructor.
+     * @param ListingIndexService $service
+     */
+    public function __construct(ListingIndexService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,11 +28,9 @@ class ListingController extends Controller
      */
     public function index(Area $area, Category $category)
     {
-        $listings = Listing::with(['owner', 'area'])->latest()->islive()->fromCategory($category)->inArea($area)->paginate();
-
         return view('listings.index', [
             'category' => $category,
-            'listings' => $listings
+            'listings' => $this->service->handle($area, $category)
         ]);
     }
 

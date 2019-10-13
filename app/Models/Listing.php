@@ -56,7 +56,7 @@ class Listing extends Model
      * @param $category
      * @return mixed
      */
-    public function scopeFromCategory($query, $category)
+    public function scopeFromCategory($query, Category $category)
     {
         return $query->where('category_id', $category->id);
     }
