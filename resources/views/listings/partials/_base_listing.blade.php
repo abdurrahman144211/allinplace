@@ -19,7 +19,7 @@
                         </span>
                     @endif
                         <span class="badge badge-info">
-                        <i class="fa fa-eye"></i> (11)
+                        <i class="fa fa-eye"></i> ({{$listing->views()}})
                     </span>
                     {{$footer}}
                 </div>

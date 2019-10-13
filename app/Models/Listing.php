@@ -141,4 +141,14 @@ class Listing extends Model
             ->withTimestamps()
             ->withPivot(['count']);
     }
+
+    /**
+     * @return mixed
+     */
+    public function views()
+    {
+        $views = $this->viewedUsers->pluck('pivot.count')->toArray();
+
+        return array_sum($views);
+    }
 }

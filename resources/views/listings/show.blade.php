@@ -37,7 +37,7 @@
                         <a href="{{route('user.area.store', $listing->area->slug)}}" class="text-white">{{$listing->area->name}}</a>
                     </span>
                     <span class="badge badge-default">
-                        <i class="fa fa-eye"></i> (11)
+                        <i class="fa fa-eye"></i> ({{$listing->views()}})
                     </span>
                 </div>
             </div>

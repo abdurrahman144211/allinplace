@@ -26,7 +26,7 @@ class ListingRepository implements ListingRepositoryInterface
      */
     public function defaultPaginated($area, $category, $limit = 15)
     {
-        return $this->listing->with(['owner', 'area', 'likers'])
+        return $this->listing->with(['owner', 'area', 'likers', 'viewedUsers'])
             ->latest()
             ->islive()
             ->fromCategory($category)

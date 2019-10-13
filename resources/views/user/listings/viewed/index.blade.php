@@ -12,7 +12,7 @@
             </div>
             <div class="row row-cards">
                 @forelse($listings as $listing)
-                    @include('listings.partials._favourite_listing', compact($listing))
+                    @include('listings.partials._viewed_listing', compact($listing))
                 @empty
                     <div class="col-md-12 alert alert-info">{{__('site.no_listings_found')}}</div>
                 @endforelse
