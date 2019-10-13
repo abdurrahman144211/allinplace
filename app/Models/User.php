@@ -48,6 +48,8 @@ class User extends Authenticatable
                 'favourites',
                 'user_id',
                 'favouritable_id'
-            )->withPivot(['created_at']);
+            )
+            ->withPivot(['created_at'])
+            ->orderBy('pivot_created_at', 'desc');
     }
 }
