@@ -14,6 +14,7 @@ Route::group(['prefix' => '/{area}'], function () {
 
     // Store a favourite for listing
     Route::get('/favourites', 'ListingFavouritesController@index')->name('listings.favourites.index');
+    Route::get('/viewed', 'ListingViewedController@index')->name('listings.viewed.index');
     Route::post('/listings/{listing}/favourites', 'ListingFavouritesController@store')->name('listings.favourites.store');
     Route::delete('/listings/{listing}/favourites', 'ListingFavouritesController@destroy')->name('listings.favourites.destroy');
 

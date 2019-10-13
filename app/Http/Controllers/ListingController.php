@@ -5,20 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Area;
 use App\Models\Listing;
 use App\Models\Category;
-use App\Services\Listings\ListingIndexService;
 use Illuminate\Http\Request;
+use App\Services\Listings\ListingShowService;
+use App\Services\Listings\ListingIndexService;
 
 class ListingController extends Controller
 {
-    protected $service;
+    protected $indexService, $showService;
 
     /**
      * ListingController constructor.
-     * @param ListingIndexService $service
+     * @param ListingIndexService $indexService
      */
-    public function __construct(ListingIndexService $service)
+    public function __construct(ListingIndexService $indexService, ListingShowService $showService)
     {
-        $this->service = $service;
+        $this->indexService = $indexService;
+        $this->showService = $showService;
     }
 
     /**
@@ -30,7 +32,7 @@ class ListingController extends Controller
     {
         return view('listings.index', [
             'category' => $category,
-            'listings' => $this->service->handle($area, $category)
+            'listings' => $this->indexService->handle($area, $category)
         ]);
     }
 
@@ -63,7 +65,8 @@ class ListingController extends Controller
      */
     public function show(Area $area, Listing $listing)
     {
-        if(! $listing->live) abort(403);
+
+       $this->showService->handle($listing);
 
         return view('listings.show', compact('listing'));
     }

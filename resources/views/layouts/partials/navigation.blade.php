@@ -40,7 +40,9 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                             <a class="dropdown-item" href="{{route('listings.favourites.index', $area)}}">
                                 <i class="dropdown-icon fe fe-heart"></i> {{__('site.favourite_listings')}}
-
+                            </a>
+                            <a class="dropdown-item" href="{{route('listings.viewed.index', $area)}}">
+                                <i class="dropdown-icon fe fe-heart"></i> {{__('site.recently_viewed_listings')}}
                             </a>
                             <a class="dropdown-item" href="">
                                 <i class="dropdown-icon fe fe-user"></i> My Channels

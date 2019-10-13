@@ -59,7 +59,7 @@ class User extends Authenticatable
     public function viewedListings()
     {
         return $this->belongsToMany(Listing::class, 'user_listing_views')
+            ->withPivot(['count', 'id'])
             ->withTimestamps();
     }
-
 }
