@@ -13,22 +13,6 @@
             <hr>
             @auth
             <div class="col-md-3">
-                @if($listing->hasFavouritedBy(auth()->user()))
-                    <form method="POST" class="form-group" action="{{route('listings.favourites.destroy', [$area, $listing])}}">
-                        @csrf
-                        {{method_field('DELETE')}}
-                        <button type="submit" class="btn btn-outline-danger">
-                            <i class="fe fe-heart"></i> {{__('site.remove_from_favourites')}}
-                        </button>
-                    </form>
-                @else
-                    <form method="POST" class="form-group" action="{{route('listings.favourites.store', [$area, $listing])}}">
-                        @csrf
-                        <button type="submit" class="btn btn-outline-primary">
-                            <i class="fe fe-heart"></i> {{__('site.add_to_favourites')}}
-                        </button>
-                    </form>
-                @endif
                 <form method="POST" class="form-group" action="{{route('listings.favourites.store', [$area, $listing])}}">
                     @csrf
                     <button type="submit" class="btn btn-default">{{__('site.add_to_favourites')}}</button>
@@ -37,6 +21,7 @@
         @endauth
         <div class="col-md-{{auth()->check() ? '9' : '12'}}">
             <div class="card">
+                @include('listings.partials._favourite_buttons')
                 <div class="card-header">
                     <h3 class="page-title">
                         {{$listing->title}}

@@ -1,16 +1,13 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$category->name}} in {{$area->name}}
+    {{__('site.favourite_listings')}}
 @endsection
 
 @section('content')
     <div class="my-3 my-md-5">
         <div class="container">
             <div class="page-header">
-                <h1 class="text-muted page-title">
-                    {{$category->parent->name}} > {{$category->name}}
-                </h1>
                 <div class="page-subtitle">{{__('site.found')}} {{count($listings)}} {{__('site.advertises')}}</div>
                 <div class="page-options d-flex">
                     <select class="form-control custom-select w-auto">
@@ -27,9 +24,9 @@
             </div>
             <div class="row row-cards">
                 @forelse($listings as $listing)
-                    @include('listings.partials._default_listing', compact($listing))
+                    @include('listings.partials._favourite_listing', compact($listing))
                 @empty
-                <div class="col-md-12 alert alert-info">{{__('site.no_listings_found')}}</div>
+                    <div class="col-md-12 alert alert-info">{{__('site.no_listings_found')}}</div>
                 @endforelse
             </div>
             {{$listings->links()}}

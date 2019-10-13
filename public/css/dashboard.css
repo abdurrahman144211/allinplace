@@ -18608,3 +18608,10 @@ svg {
 .fe-zoom-out:before {
   content: "\ea06";
 }
+
+.corner{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+

@@ -25,9 +25,11 @@ class ListingFavouritesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('user.listings.favourites.index', [
+            'listings' => $request->user()->favouriteListings()->with('owner')->paginate()
+        ]);
     }
 
     /**
@@ -48,7 +50,7 @@ class ListingFavouritesController extends Controller
      */
     public function store(Request $request, Area $area, Listing $listing)
     {
-        $this->service->handle($listing, $request->user());
+        $this->service->store($listing, $request->user());
 
         return back();
     }
@@ -88,13 +90,14 @@ class ListingFavouritesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Area $area
+     * @param Listing $listing
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Area $area, Listing $listing)
     {
+        $this->service->destory($listing, auth()->user());
 
+        return back();
     }
 }
