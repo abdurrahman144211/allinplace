@@ -26,4 +26,17 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return $this->category->withListingsInArea($area)->get();
     }
+
+    /**
+     * @param $id
+     * @param null $field
+     */
+    public function find($id, $field = null)
+    {
+        $category = $this->category->find($id);
+
+        if(! $category) return;
+
+        return $field ? $category[$field] : $category;
+    }
 }

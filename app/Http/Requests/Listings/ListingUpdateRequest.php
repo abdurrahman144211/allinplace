@@ -23,4 +23,13 @@ class ListingUpdateRequest extends ListingStoreRequest
     {
         return parent::rules();
     }
+
+    public function persist($area, $listing)
+    {
+        if($this->has('payment')) {
+            return redirect(route('listings.payment.show', [$area, $listing]));
+        }
+
+        return back();
+    }
 }

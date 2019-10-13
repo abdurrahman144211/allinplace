@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Listings\ListingStoreRequest;
-use App\Http\Requests\Listings\ListingUpdateRequest;
 use App\Models\Area;
 use App\Models\Listing;
 use App\Models\Category;
-use App\Services\Listings\ListingStoreService;
-use App\Services\Listings\ListingUpdateService;
-use Illuminate\Http\Request;
 use App\Services\Listings\ListingShowService;
+use App\Services\Listings\ListingStoreService;
 use App\Services\Listings\ListingIndexService;
+use App\Services\Listings\ListingUpdateService;
+use App\Http\Requests\Listings\ListingStoreRequest;
+use App\Http\Requests\Listings\ListingUpdateRequest;
 
 class ListingController extends Controller
 {
@@ -53,15 +52,14 @@ class ListingController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Area $area
+     * @param ListingStoreRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Area $area, ListingStoreRequest $request)
     {
-
-        $listing = resolve(ListingStoreService::class)->store($request->validated());
+        $listing = resolve(ListingStoreService::class)
+            ->store($request->validated());
 
         return redirect()->route('listings.edit', [$area, $listing]);
     }
@@ -81,6 +79,12 @@ class ListingController extends Controller
     }
 
 
+    /**
+     * @param $area
+     * @param Listing $listing
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function edit($area, Listing $listing)
     {
         $this->authorize('update', $listing);
@@ -88,13 +92,13 @@ class ListingController extends Controller
         return view('listings.edit', compact('listing'));
     }
 
-    public function update($area, Listing $listing, ListingUpdateRequest $request)
+    public function update(Area $area, Listing $listing, ListingUpdateRequest $request)
     {
         $this->authorize('update', $listing);
 
-        resolve(ListingUpdateService::class)->update($listing, $request->validated());
+        $listing = resolve(ListingUpdateService::class)->update($listing, $request->validated());
 
-        // check for payments
+        return $request->persist($area, $listing)->with('success', __('site.info_updated_successfully'));
     }
 
     /**

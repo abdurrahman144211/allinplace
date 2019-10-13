@@ -45,7 +45,17 @@
                             @include('listings.partials.form._areas')
                             @include('listings.partials.form._categories')
                             <div class="form-group">
-                                <button type="submit" class="btn btn-default">{{__('site.save')}}</button>
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fe fe-edit"></i>
+                                    {{__('site.save')}}
+                                </button>
+
+                                @if(! $listing->live() && ! $listing->free())
+                                    <button type="submit" name="payment" class="btn btn-primary">
+                                        <i class="fe fe-credit-card"></i>
+                                        {{__('site.continue_to_payment')}}
+                                    </button>
+                                @endif
                             </div>
                         </form>
                     </div>

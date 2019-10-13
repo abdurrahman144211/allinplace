@@ -36,7 +36,10 @@
                             @include('listings.partials.form._areas')
                             @include('listings.partials.form._categories')
                             <div class="form-group">
-                                <button type="submit" class="btn btn-default">{{__('site.save')}}</button>
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fe fe-plus"></i>
+                                    {{__('site.save')}}
+                                </button>
                             </div>
                         </form>
                     </div>

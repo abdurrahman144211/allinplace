@@ -2,20 +2,20 @@
 
 namespace App\Services\Listings;
 
-use App\Jobs\UserViewedListing;
-use App\Models\Listing;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
 use App\Repositories\Contracts\ListingRepositoryInterface;
 
 class ListingStoreService
 {
-    protected $listings;
+    protected $categories, $listings;
 
     /**
      * ListingIndexService constructor.
-     * @param ListingRepositoryInterface $listings
+     * @param CategoryRepositoryInterface $categories
      */
-    public function __construct(ListingRepositoryInterface $listings)
+    public function __construct(CategoryRepositoryInterface $categories, ListingRepositoryInterface $listings)
     {
+        $this->categories = $categories;
         $this->listings = $listings;
     }
 
@@ -29,7 +29,15 @@ class ListingStoreService
         $user = $user ?: auth()->user();
 
         return $this->listings->store(
-            array_merge($request, ['user_id' => $user->id])
+            array_merge($request, [
+                'user_id' => $user->id,
+                'live' => $this->postFree($request['category_id']),
+            ])
         );
+    }
+
+    protected function postFree($categoryId)
+    {
+        return (int) $this->categories->find($categoryId, 'price') > 0 ? false : true;
     }
 }

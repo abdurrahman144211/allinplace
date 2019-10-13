@@ -36,6 +36,7 @@ class Listing extends Model
     {
         return $query->where('live', true);
     }
+
     /**
      * @param $query
      * @return mixed
@@ -44,6 +45,7 @@ class Listing extends Model
     {
         return $query->where('live', false);
     }
+
     /**
      * @return mixed
      */
@@ -58,6 +60,22 @@ class Listing extends Model
     public function cost()
     {
         return $this->category->price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function formattedCost()
+    {
+        return $this->category->cost();
+    }
+
+    /**
+     * @return bool
+     */
+    public function free()
+    {
+        return $this->cost() === 0;
     }
 
     /**

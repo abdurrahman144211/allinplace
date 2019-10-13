@@ -2,8 +2,6 @@
 
 namespace App\Services\Listings;
 
-use App\Jobs\UserViewedListing;
-use App\Models\Listing;
 use App\Repositories\Contracts\ListingRepositoryInterface;
 
 class ListingUpdateService
@@ -32,7 +30,12 @@ class ListingUpdateService
         if($listing->live()) unset($request['category_id']);
 
         $this->listings->update(
-            $listing, array_merge($request, ['user_id' => $user->id])
+            $listing, array_merge($request, [
+                'user_id' => $user->id,
+                'live' => $listing->free() ? true : false,
+            ])
         );
+
+        return $listing;
     }
 }
