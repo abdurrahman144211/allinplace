@@ -18,6 +18,7 @@ class CreateAreasTable extends Migration
             $table->string('name');
             $table->string('slug');
             \Kalnoy\Nestedset\NestedSet::columns($table);
+            $table->boolean('usable')->default(false);
             $table->timestamps();
         });
     }

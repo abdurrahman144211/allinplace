@@ -33,4 +33,22 @@ class ListingRepository implements ListingRepositoryInterface
             ->inArea($area)
             ->paginate($limit);
     }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+    public function store($data)
+    {
+        return $this->listing->create($data);
+    }
+
+    /**
+     * @param $listing
+     * @param $data
+     */
+    public function update($listing, $data)
+    {
+        $listing->update($data);
+    }
 }

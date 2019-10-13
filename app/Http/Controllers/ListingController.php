@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Listings\ListingStoreRequest;
+use App\Http\Requests\Listings\ListingUpdateRequest;
 use App\Models\Area;
 use App\Models\Listing;
 use App\Models\Category;
+use App\Services\Listings\ListingStoreService;
+use App\Services\Listings\ListingUpdateService;
 use Illuminate\Http\Request;
 use App\Services\Listings\ListingShowService;
 use App\Services\Listings\ListingIndexService;
@@ -21,6 +25,8 @@ class ListingController extends Controller
     {
         $this->indexService = $indexService;
         $this->showService = $showService;
+
+        $this->middleware('auth', ['except' => ['show', 'index']]);
     }
 
     /**
@@ -43,7 +49,7 @@ class ListingController extends Controller
      */
     public function create()
     {
-        //
+        return view('listings.create');
     }
 
     /**
@@ -52,9 +58,12 @@ class ListingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Area $area, ListingStoreRequest $request)
     {
-        //
+
+        $listing = resolve(ListingStoreService::class)->store($request->validated());
+
+        return redirect()->route('listings.edit', [$area, $listing]);
     }
 
     /**
@@ -71,27 +80,21 @@ class ListingController extends Controller
         return view('listings.show', compact('listing'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit($area, Listing $listing)
     {
-        //
+        $this->authorize('update', $listing);
+
+        return view('listings.edit', compact('listing'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update($area, Listing $listing, ListingUpdateRequest $request)
     {
-        //
+        $this->authorize('update', $listing);
+
+        resolve(ListingUpdateService::class)->update($listing, $request->validated());
+
+        // check for payments
     }
 
     /**

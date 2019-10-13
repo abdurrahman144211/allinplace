@@ -7,12 +7,17 @@
             <div class="d-flex order-lg-2 ml-auto">
                 @guest
                     <div class="nav-item d-none d-md-flex">
-                        <a href="{{route('login')}}" class="btn btn-sm btn-outline-primary" >Login</a>
+                        <a href="{{route('login')}}" class="btn btn-sm btn-outline-primary" >{{__('site.login')}}</a>
                     </div>
                     <div class="nav-item d-none d-md-flex">
-                        <a href="{{route('register')}}" class="btn btn-sm btn-outline-success">Register</a>
+                        <a href="{{route('register')}}" class="btn btn-sm btn-outline-success">{{__('site.register')}}</a>
                     </div>
                 @else
+                    <div class="nav-item d-none d-md-flex">
+                        <a href="{{route('listings.create', $area)}}" class="btn btn-sm btn-outline-success" >
+                            <i class="fe fe-plus"></i>{{__('site.create_listing')}}
+                        </a>
+                    </div>
                     <div class="dropdown d-none d-md-flex">
                         <a class="nav-link icon" data-toggle="dropdown">
                             <i class="fe fe-bell"></i>

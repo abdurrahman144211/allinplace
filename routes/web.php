@@ -20,4 +20,5 @@ Route::group(['prefix' => '/{area}'], function () {
     Route::post('/listings/{listing}/contact', 'ListingContactsController@store')->name('listings.contacts.store');
     // Show single listing
     Route::get('/{listing}', 'ListingController@show')->name('listings.show');
+    Route::resource('/listings', 'ListingController')->except('show', 'index');
 });

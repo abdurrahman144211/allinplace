@@ -20,6 +20,14 @@ class Category extends Model
         return "slug";
     }
 
+    public function cost()
+    {
+        if($this->price > 0) {
+            return "$" . number_format($this->price, 2);
+        }
+
+        return __('site.free');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

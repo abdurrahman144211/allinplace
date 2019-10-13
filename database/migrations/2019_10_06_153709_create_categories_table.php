@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('slug')->unique();
             $table->integer('price')->default(0);
             \Kalnoy\Nestedset\NestedSet::columns($table);
+            $table->boolean('usable')->default(false);
             $table->timestamps();
         });
     }
