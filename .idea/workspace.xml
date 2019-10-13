@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84e11df3-8620-4040-bdf2-6e68ecd4e534" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/listings/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listings/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/scripts.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/listings/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+            <state relative-caret-position="1485">
+              <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -81,8 +78,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navigation.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="398">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/scripts.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -130,7 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>signout</find>
       <find>logo`</find>
       <find>Home</find>
       <find>state</find>
@@ -160,6 +165,7 @@
       <find>eye</find>
       <find>message</find>
       <find>bell</find>
+      <find>read</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" />
         <option value="$PROJECT_DIR$/app/Repositories/AreaRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Contracts/AreaRepositoryInterface.php" />
@@ -215,9 +220,10 @@
         <option value="$PROJECT_DIR$/app/Services/ListingContacts/ContactStoreService.php" />
         <option value="$PROJECT_DIR$/app/Notifications/ListingContactCreated.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/listings/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/ViewComposers/NotificationComposer.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/partials/scripts.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/listings/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/navigation.blade.php" />
       </list>
     </option>
@@ -489,23 +495,23 @@
       <workItem from="1570354881839" duration="29773000" />
       <workItem from="1570449956646" duration="2376000" />
       <workItem from="1570878023443" duration="11439000" />
-      <workItem from="1570953728755" duration="19769000" />
+      <workItem from="1570953728755" duration="20580000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78873000" />
+    <option name="totallyTimeSpent" value="79684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1280" height="1024" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" x="2689" y="25" width="381" height="999" id="Project" order="1" visible="true" weight="0.2046875" />
+      <window_info content_ui="combo" x="2689" y="25" width="381" height="999" id="Project" order="1" weight="0.2046875" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="0" weight="0.32982087" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.19635628" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.19635628" />
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="4" />
@@ -522,21 +528,34 @@
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info content_ui="combo" x="2689" y="25" width="381" height="999" id="Project" order="1" visible="true" weight="0.2046875" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="0" weight="0.32982087" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.19635628" />
+      <window_info anchor="bottom" id="Database Changes" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Repositories/AreaRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-          <folding>
-            <element signature="e#36#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -902,13 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listings/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/ViewServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -933,10 +945,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listings/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/scripts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navigation.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="398">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
