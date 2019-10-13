@@ -19,15 +19,18 @@
                             <span class="nav-unread"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                            <a href="#" class="dropdown-item d-flex">
-                                <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/female/18.jpg)"></span>
-                                <div>
-                                    <strong>Rose</strong> deployed new version of NodeJS REST Api V3
-                                    <div class="small text-muted">2 hours ago</div>
-                                </div>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item text-center text-muted-dark">Mark all as read</a>
+                            @if(count($notifications))
+                                @foreach($notifications as $notification)
+                                    <a href="{{$notification['data']['link']}}" class="dropdown-item d-flex">
+                                        <div>
+                                            {{$notification['data']['message']}}
+                                            <div class="small text-muted">{{$notification['created_at']}}</div>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            @else
+                                <a href="#" class="dropdown-item text-center text-muted-dark">{{__('site.no_notifications')}}</a>
+                            @endif
                         </div>
                     </div>
                     <div class="dropdown">

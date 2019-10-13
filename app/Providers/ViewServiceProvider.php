@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Http\ViewComposers\AreaComposer;
+use App\Http\ViewComposers\NotificationComposer;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('*', AreaComposer::class);
+        View::composer('layouts.partials.navigation', NotificationComposer::class);
     }
 }

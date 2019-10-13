@@ -41,28 +41,36 @@
                     </span>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5><i class="fe fe-message-square"></i> {{__('site.contact')}} {{$listing->owner->name}}</h5>
-                    @auth
-                    <form method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label>{{__('site.messages')}}</label>
-                            <textarea class="form-control" name="message" rows="3"></textarea>
+
+            @auth
+                @if(! $listing->owner->is(auth()->user()))
+                    <div class="card">
+                        <div class="card-body">
+                            <h5><i class="fe fe-message-square"></i> {{__('site.contact')}} {{$listing->owner->name}}</h5>
+                            <form method="post" action="{{route('listings.contacts.store', [$area, $listing])}}">
+                                @csrf
+                                <div class="form-group">
+                                    <label>{{__('site.messages')}}</label>
+                                    <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="3" required></textarea>
+                                    @error('message')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-secondary">{{__('site.send')}}</button>
+                                </div>
+                                <span class="text-muted">
+                            {{__('site.send_message_notice', ['name' => $listing->owner->name])}}
+                    </span>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-secondary">{{__('site.send')}}</button>
-                        </div>
-                        <span class="text-muted">
-                                {{__('site.send_message_notice', ['name' => $listing->owner->name])}}
-                        </span>
-                    </form>
-                    @else
-                        <a href="{{route('login')}}" class="btn btn-primary"><i class="fe fe-log-in"></i> {{__('site.sign_in_to_contact')}}</a>
-                    @endauth
-                </div>
-            </div>
+                    </div>
+                @endif
+            @else
+                <a href="{{route('login')}}" class="btn btn-primary"><i class="fe fe-log-in"></i> {{__('site.sign_in_to_contact')}}</a>
+            @endauth
         </div>
     </div>
 </div>
