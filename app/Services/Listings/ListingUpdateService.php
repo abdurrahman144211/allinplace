@@ -27,7 +27,13 @@ class ListingUpdateService
     {
         $user = $user ?: auth()->user();
 
-        if($listing->live()) unset($request['category_id']);
+        if($listing->live()) {
+            unset($request['category_id']);
+        } else {
+            $this->listings->update($listing, [
+                'category_id' => $request['category_id']
+            ]);
+        }
 
         $this->listings->update(
             $listing, array_merge($request, [

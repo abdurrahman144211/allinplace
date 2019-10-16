@@ -51,10 +51,10 @@
                                 </button>
 
                                 @if(! $listing->live() && ! $listing->free())
-                                    <button type="submit" name="payment" class="btn btn-primary">
+                                    <a href="{{route('listings.payment.show', [$area, $listing])}}" class="btn btn-primary">
                                         <i class="fe fe-credit-card"></i>
                                         {{__('site.continue_to_payment')}}
-                                    </button>
+                                    </a>
                                 @endif
                             </div>
                         </form>

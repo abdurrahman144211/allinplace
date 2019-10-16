@@ -92,13 +92,20 @@ class ListingController extends Controller
         return view('listings.edit', compact('listing'));
     }
 
+    /**
+     * @param Area $area
+     * @param Listing $listing
+     * @param ListingUpdateRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Area $area, Listing $listing, ListingUpdateRequest $request)
     {
         $this->authorize('update', $listing);
 
-        $listing = resolve(ListingUpdateService::class)->update($listing, $request->validated());
+        resolve(ListingUpdateService::class)->update($listing, $request->validated());
 
-        return $request->persist($area, $listing)->with('success', __('site.info_updated_successfully'));
+        return back()->with('success', __('site.info_updated_successfully'));
     }
 
     /**
